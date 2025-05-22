@@ -1,47 +1,64 @@
 import { useState } from 'react';
 
+const colors = [
+  'bg-blue-100',
+  'bg-green-100',
+  'bg-purple-100',
+  'bg-yellow-100',
+  'bg-pink-100',
+  'bg-indigo-100',
+  'bg-orange-100',
+];
+
 const cards = [
   {
     id: 1,
     image: '/images/card1.png',
     title: 'Clarity',
     text: 'Make your writing easier to understand.',
+    color: colors[Math.floor(Math.random() * colors.length)],
   },
   {
     id: 2,
     image: '/images/card2.png',
     title: 'Tone',
     text: 'Adjust your tone to suit your audience.',
+    color: colors[Math.floor(Math.random() * colors.length)],
   },
   {
     id: 3,
     image: '/images/card3.png',
     title: 'Creativity',
     text: 'Enhance originality in AI-generated content.',
+    color: colors[Math.floor(Math.random() * colors.length)],
   },
   {
     id: 4,
     image: '/images/card4.png',
     title: 'Humanize',
     text: 'Make writing feel authentic and human.',
+    color: colors[Math.floor(Math.random() * colors.length)],
   },
   {
     id: 5,
     image: '/images/card5.png',
     title: 'Expand',
     text: 'Add detail and depth to your content.',
+    color: colors[Math.floor(Math.random() * colors.length)],
   },
   {
     id: 6,
     image: '/images/card6.png',
     title: 'Shorten',
     text: 'Summarize or reduce verbosity.',
+    color: colors[Math.floor(Math.random() * colors.length)],
   },
   {
     id: 7,
     image: '/images/card7.png',
     title: 'Custom',
     text: 'Rewrite with your own instructions.',
+    color: colors[Math.floor(Math.random() * colors.length)],
   },
 ];
 
@@ -50,7 +67,7 @@ export function CardCarousel() {
   const cardsPerView = 3;
 
   const next = () => {
-    if (startIndex + cardsPerView < cards.length) {
+    if (startIndex + 1 <= cards.length - cardsPerView) {
       setStartIndex(startIndex + 1);
     }
   };
@@ -61,8 +78,9 @@ export function CardCarousel() {
     }
   };
 
-  const totalPages = Math.ceil(cards.length / cardsPerView);
-  const currentPage = Math.floor(startIndex / cardsPerView);
+  const getVisiblePageIndex = () => {
+    return Math.floor(startIndex / 1);
+  };
 
   return (
     <section className="bg-white py-12 px-4">
@@ -72,10 +90,13 @@ export function CardCarousel() {
       </div>
 
       <div className="relative max-w-6xl mx-auto overflow-hidden">
-        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${startIndex * (100 / cardsPerView)}%)` }}>
+        <div 
+          className="flex transition-transform duration-500 ease-in-out" 
+          style={{ transform: `translateX(-${(startIndex * (100 / cardsPerView))}%)` }}
+        >
           {cards.map((card) => (
             <div key={card.id} className="min-w-[33.3333%] px-4 box-border">
-              <div className="bg-gray-100 p-6 rounded-lg shadow text-left h-full flex flex-col items-start">
+              <div className={`${card.color} p-6 rounded-lg shadow text-left h-full flex flex-col items-start`}>
                 <img src={card.image} alt={card.title} className="w-full h-40 object-cover rounded mb-4" />
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">{card.title}</h3>
                 <p className="text-gray-600 text-sm">{card.text}</p>
@@ -97,17 +118,17 @@ export function CardCarousel() {
 
         {/* Page Indicators */}
         <div className="flex gap-2">
-          {Array.from({ length: totalPages }).map((_, index) => (
+          {Array.from({ length: 5 }).map((_, index) => (
             <div
               key={index}
-              className={`w-3 h-3 rounded-full ${index === currentPage ? 'bg-blue-600' : 'bg-gray-300'}`}
+              className={`w-3 h-3 rounded-full ${index === getVisiblePageIndex() ? 'bg-blue-600' : 'bg-gray-300'}`}
             ></div>
           ))}
         </div>
 
         <button
           onClick={next}
-          disabled={startIndex + cardsPerView >= cards.length}
+          disabled={startIndex >= cards.length - cardsPerView}
           className="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Next
