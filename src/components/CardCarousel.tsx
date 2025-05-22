@@ -34,14 +34,14 @@ const cards = [
   },
   {
     id: 4,
-    image: 'https://assets.quillbot.com/pageq/QBWebapp/gc-widget.png',
+    image: 'https://assets.quillbot.com/pageq/QBWebapp/smzr-widget.png',
     title: 'Humanize',
     text: 'Make writing feel authentic and human.',
     color: colors[3],
   },
   {
     id: 5,
-    image: 'https://assets.quillbot.com/pageq/QBWebapp/smzr-widget.png',
+    image: '',
     title: 'Expand',
     text: 'Add detail and depth to your content.',
     color: colors[4],
