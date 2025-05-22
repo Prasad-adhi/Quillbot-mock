@@ -48,7 +48,7 @@ const cards = [
   },
   {
     id: 6,
-    image: '/images/card6.png',
+    image: 'https://assets.quillbot.com/pageq/QBWebapp/plag-widget.png',
     title: 'Shorten',
     text: 'Summarize or reduce verbosity.',
     color: colors[5],
