@@ -34,7 +34,7 @@ const cards = [
   },
   {
     id: 4,
-    image: '/images/card4.png',
+    image: 'https://assets.quillbot.com/pageq/QBWebapp/gc-widget.png',
     title: 'Humanize',
     text: 'Make writing feel authentic and human.',
     color: colors[3],
