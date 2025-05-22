@@ -27,7 +27,7 @@ const cards = [
   },
   {
     id: 3,
-    image: '/images/card3.png',
+    image: 'https://assets.quillbot.com/pageq/QBWebapp/gc-widget.png',
     title: 'Creativity',
     text: 'Enhance originality in AI-generated content.',
     color: colors[2],
