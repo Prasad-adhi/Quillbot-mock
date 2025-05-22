@@ -13,14 +13,14 @@ const colors = [
 const cards = [
   {
     id: 1,
-    image: '/images/card1.png',
+    image: 'https://assets.quillbot.com/pageq/QBWebapp/pphr-widget.png',
     title: 'Clarity',
     text: 'Make your writing easier to understand.',
     color: colors[0],
   },
   {
     id: 2,
-    image: '/images/card2.png',
+    image: 'https://assets.quillbot.com/pageq/QBWebapp/aidr-widget.png',
     title: 'Tone',
     text: 'Adjust your tone to suit your audience.',
     color: colors[1],
