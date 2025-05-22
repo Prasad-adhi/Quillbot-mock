@@ -4,6 +4,7 @@ import { InfoSection } from './components/InfoSection'
 import { WhyQuillbot } from './components/WhyQuillbot'
 import { HowItWorks } from './components/HowItWorks'
 import { ComparePlans } from './components/ComparePlans'
+import { CardCarousel } from './components/CardCarousel'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <WhyQuillbot />
       <HowItWorks />
       <ComparePlans />
+      <CardCarousel />
     </div>
   )
 }
