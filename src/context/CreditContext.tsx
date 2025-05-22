@@ -20,8 +20,8 @@ export function CreditProvider({ children }: { children: React.ReactNode }) {
   };
 
   const addCredits = () => {
-    setTotalCredits(1000);
-    setCredits(0);
+    setTotalCredits(totalCredits+1000);
+    //setCredits(0);
   };
 
   return (
