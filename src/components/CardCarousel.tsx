@@ -55,7 +55,7 @@ const cards = [
   },
   {
     id: 7,
-    image: '/images/card7.png',
+    image: 'https://assets.quillbot.com/pageq/QBWebapp/translator-widget.png',
     title: 'Custom',
     text: 'Rewrite with your own instructions.',
     color: colors[6],
