@@ -2,6 +2,8 @@ import React from 'react'
 import { TextEditor } from './components/TextEditor'
 import { InfoSection } from './components/InfoSection'
 import { WhyQuillbot } from './components/WhyQuillbot'
+import { HowItWorks } from './components/HowItWorks'
+import { ComparePlans } from './components/ComparePlans'
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
 
       <InfoSection />
       <WhyQuillbot />
+      <HowItWorks />
+      <ComparePlans />
     </div>
   )
 }
