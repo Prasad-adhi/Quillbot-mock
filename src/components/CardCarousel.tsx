@@ -41,7 +41,7 @@ const cards = [
   },
   {
     id: 5,
-    image: '',
+    image: 'https://assets.quillbot.com/pageq/QBWebapp/ctgr-widget.png',
     title: 'Expand',
     text: 'Add detail and depth to your content.',
     color: colors[4],
