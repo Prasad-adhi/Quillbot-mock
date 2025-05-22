@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 export function Pricing() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-7xl mx-auto">
@@ -43,7 +47,10 @@ export function Pricing() {
                 Priority support
               </li>
             </ul>
-            <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            <button 
+              onClick={() => navigate('/payment')}
+              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+            >
               Subscribe Now
             </button>
           </div>

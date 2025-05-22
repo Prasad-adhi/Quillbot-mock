@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Loader2 } from 'lucide-react'
+import { useCredits } from '../context/CreditContext'
 
 export function TextEditor() {
   const [inputText, setInputText] = useState('')
@@ -10,12 +11,14 @@ export function TextEditor() {
   const isDraggingRef = useRef(false)
   const startXRef = useRef(0)
   const startSplitRef = useRef(0)
+  const { useCredits } = useCredits();
 
   const processText = async () => {
     if (!inputText.trim()) return
     
     setIsProcessing(true)
     try {
+      useCredits();
       // TODO: Replace with actual API call
       await new Promise(resolve => setTimeout(resolve, 1000))
       setOutputText("This is where the processed text will appear. Replace this with actual API integration.")

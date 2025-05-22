@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { User, LogOut } from 'lucide-react';
+import { useCredits } from '../context/CreditContext';
 
 export function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -9,6 +10,7 @@ export function Navbar() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { credits, totalCredits } = useCredits();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,17 +50,14 @@ export function Navbar() {
                   Pricing
                 </Link>
                 <Link
-                  to="/payment"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Payment
-                </Link>
-                <Link
                   to="/contact"
                   className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Contact
                 </Link>
+                <span className="text-gray-600 px-3 py-2 rounded-md text-sm font-medium">
+                  Credits: {credits} / {totalCredits}
+                </span>
               </>
             )}
             <button
@@ -72,7 +71,7 @@ export function Navbar() {
       </div>
 
       {showLoginModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full">
             <h2 className="text-2xl font-bold mb-4">Login</h2>
             <form onSubmit={handleLogin}>
