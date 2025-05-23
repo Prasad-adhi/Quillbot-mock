@@ -14,10 +14,21 @@ export function TextEditor() {
   const startSplitRef = useRef(0)
   const { useCredits: spendCredits, credits, totalCredits } = useCredits()
   const navigate = useNavigate()
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   const processText = async () => {
     if (!inputText.trim()) return
     
+    if (!isLoggedIn) {
+      const shouldLogin = window.confirm('Please log in to use this feature. Would you like to log in now?')
+      if (shouldLogin) {
+        // This will trigger the login modal in the Navbar
+        const loginButton = document.querySelector('button.inline-flex') as HTMLButtonElement
+        if (loginButton) loginButton.click()
+      }
+      return
+    }
+
     if (credits + 20 > totalCredits) {
       const shouldUpgrade = window.confirm('You have run out of credits. Would you like to upgrade your plan?')
       if (shouldUpgrade) {
@@ -72,6 +83,21 @@ export function TextEditor() {
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
       document.removeEventListener('mouseup', handleMouseUp)
+    }
+  }, [])
+
+  // Listen for login state changes
+  useEffect(() => {
+    const checkLoginState = () => {
+      const loginState = localStorage.getItem('isLoggedIn') === 'true'
+      setIsLoggedIn(loginState)
+    }
+
+    window.addEventListener('storage', checkLoginState)
+    checkLoginState() // Check initial state
+
+    return () => {
+      window.removeEventListener('storage', checkLoginState)
     }
   }, [])
 

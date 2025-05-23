@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { User, LogOut } from 'lucide-react';
 import { useCredits } from '../context/CreditContext';
@@ -20,6 +20,8 @@ export function Navbar() {
       setError('');
       setUsername('');
       setPassword('');
+      localStorage.setItem('isLoggedIn', 'true');
+      window.dispatchEvent(new Event('storage'));
     } else {
       setError('Invalid credentials');
     }
@@ -27,8 +29,15 @@ export function Navbar() {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
+    window.dispatchEvent(new Event('storage'));
     navigate('/');
   };
+
+  useEffect(() => {
+    const loginState = localStorage.getItem('isLoggedIn') === 'true';
+    setIsLoggedIn(loginState);
+  }, []);
 
   return (
     <nav className="bg-white shadow-lg">
