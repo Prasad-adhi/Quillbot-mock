@@ -1,6 +1,6 @@
 export function WhyQuillbot() {
   return (
-    <section className="bg-white text-center mb-12 px-4">
+    <section className="bg-white text-center mb-0 px-4">
       <header className="mb-12">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">
           Why use QuillBot's Humanize AI Tool
