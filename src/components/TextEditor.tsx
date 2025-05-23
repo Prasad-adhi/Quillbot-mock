@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Loader2 } from 'lucide-react'
 import { useCredits } from '../context/CreditContext'
+import { useNavigate } from 'react-router-dom'
 
 export function TextEditor() {
   const [inputText, setInputText] = useState('')
@@ -11,14 +12,23 @@ export function TextEditor() {
   const isDraggingRef = useRef(false)
   const startXRef = useRef(0)
   const startSplitRef = useRef(0)
-  const { useCredits: spendCredits } = useCredits();
+  const { useCredits: spendCredits, credits, totalCredits } = useCredits()
+  const navigate = useNavigate()
 
   const processText = async () => {
     if (!inputText.trim()) return
     
+    if (credits + 20 > totalCredits) {
+      const shouldUpgrade = window.confirm('You have run out of credits. Would you like to upgrade your plan?')
+      if (shouldUpgrade) {
+        navigate('/pricing')
+      }
+      return
+    }
+    
     setIsProcessing(true)
     try {
-      spendCredits();
+      spendCredits()
       // TODO: Replace with actual API call
       await new Promise(resolve => setTimeout(resolve, 1000))
       setOutputText("This is where the processed text will appear. Replace this with actual API integration.")
