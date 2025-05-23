@@ -11,6 +11,8 @@ import { Pricing } from './pages/Pricing'
 import { Payment } from './pages/Payment'
 import { Contact } from './pages/Contact'
 import { CreditProvider } from './context/CreditContext'
+import { DashboardUpload } from './pages/Dashboard'
+import {FeaturedAndFAQ} from './components/FAQs'
 
 function App() {
   return (
@@ -38,11 +40,13 @@ function App() {
                 <HowItWorks />
                 <ComparePlans />
                 <CardCarousel />
+                <FeaturedAndFAQ />
               </>
             } />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard" element={<DashboardUpload />} />
           </Routes>
         </div>
       </Router>

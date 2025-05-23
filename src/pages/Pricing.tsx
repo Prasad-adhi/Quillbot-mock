@@ -24,7 +24,9 @@ export function Pricing() {
                 Limited usage
               </li>
             </ul>
-            <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            <button 
+              onClick={() => navigate('/')}
+              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
               Get Started
             </button>
           </div>
@@ -73,7 +75,9 @@ export function Pricing() {
                 Dedicated support
               </li>
             </ul>
-            <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
               Contact Sales
             </button>
           </div>
