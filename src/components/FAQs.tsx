@@ -36,7 +36,7 @@ export function FeaturedAndFAQ(): JSX.Element {
     <section className="bg-white py-12 px-4">
       {/* Featured In */}
       <div className="text-center mb-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Featured in</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">Featured in</h2>
         <div className="flex flex-wrap justify-center gap-8 items-center">
           {companyLogos.map((src, index) => (
             <img
