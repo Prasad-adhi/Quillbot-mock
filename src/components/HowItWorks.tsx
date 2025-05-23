@@ -1,6 +1,6 @@
 export function HowItWorks() {
   return (
-    <section className="bg-gray-100 py-12 px-4">
+    <section className="bg-white py-12 px-4">
       <div className="max-w-6xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
           Why Our Humanizer Works
